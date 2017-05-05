@@ -22,14 +22,14 @@
 			<div class="form-group">
 				<label for="username" class="col-sm-2 col-lg-1 control-label">Username</label>
 				<div class="col-sm-10 col-lg-11">
-					<input id="username" class="form-control" type="text" />
+					<h:inputText id="username" value="#{userAction.user.username}" styleClass="form-control" type="text" />
 				</div>
 			</div>
 
 			<div class="form-group">
 				<label for="password" class="col-sm-2 col-lg-1 control-label">Password</label>
 				<div class="col-sm-10 col-lg-11">
-					<input id="password" class="form-control" type="password" />
+					<h:inputSecret id="password" styleClass="form-control" type="password" />
 				</div>
 			</div>
 
@@ -37,8 +37,7 @@
 				<label for="password-confirmation"
 					class="col-sm-2 col-lg-1 control-label">Confirm password</label>
 				<div class="col-sm-10 col-lg-11">
-					<input id="password-confirmation" class="form-control"
-						type="password" />
+				<h:inputSecret id="password-confirmation" styleClass="form-control" value="#{userAction.passwordConfirmation}" />
 				</div>
 			</div>
 
@@ -46,7 +45,7 @@
 				<label for="first-name" class="col-sm-2 col-lg-1 control-label">First
 					name</label>
 				<div class="col-sm-10 col-lg-11">
-					<input id="first-name" class="form-control" type="text" />
+					<h:inputText id="first-name" value="#{userAction.user.firstName}" styleClass="form-control" type="text" />
 				</div>
 			</div>
 
@@ -54,30 +53,39 @@
 				<label for="last-name" class="col-sm-2 col-lg-1 control-label">Last
 					name</label>
 				<div class="col-sm-10 col-lg-11">
-					<input id="last-name" class="form-control" type="text" />
+					<h:inputText id="last-name" value="#{userAction.user.lastName}" styleClass="form-control" type="text" />
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="email" class="col-sm-2 col-lg-1 control-label">Email</label>
+				<div class="col-sm-10 col-lg-11">
+					<h:inputText id="email" value="#{userAction.user.email}" styleClass="form-control" type="text" />
 				</div>
 			</div>
 
 			<div class="form-group">
 				<label for="country" class="col-sm-2 col-lg-1 control-label">Country</label>
 				<div class="col-sm-10 col-lg-11">
-					<select id="contry" class="form-control">
-						<option>Bulgaria</option>
-						<option>Germany</option>
-						<option>Romania</option>
-						<option>Rusia</option>
-						<option>USA</option>
-						<option>Bulgaria</option>
-					</select>
+				<h:selectOneMenu id="country" value="#{userAction.user.country}" styleClass="form-control">
+				<f:selectItem itemLabel="-----" noSelectOption="true"/>
+					<f:selectItem itemLabel="Bulgaria" itemValue="BG"/>
+					<f:selectItem itemLabel="Germany" itemValue="DE"/>
+					<f:selectItem itemLabel="Romania" itemValue="RO"/>
+					<f:selectItem itemLabel="Rusia" itemValue="RU"/>
+					<f:selectItem itemLabel="USA" itemValue="US"/>
+				</h:selectOneMenu>
 				</div>
 			</div>
 
 			<div class="form-group">
 				<label for="address" class="col-sm-2 col-lg-1 control-label">Address</label>
 				<div class="col-sm-10 col-lg-11">
-					<textarea id="address" class="form-control"></textarea>
+				<h:inputTextarea id="address" value="#{userAction.user.address}" styleClass="form-control">
+				</h:inputTextarea>
 				</div>
 			</div>
+			<h:commandButton id="save-buttons" action="#{userAction.user.save()}" value="Save" styleClass ="btn btn-primary" />
 		</form>
 
 	</div>
